@@ -24,17 +24,22 @@ const Character: React.FC<CharacterProps> = () => {
   const { image, name, status } = data.character;
 
   return (
-    <Fragment>
-      <div>
-        image: <strong>{image}</strong>
-      </div>
+    <div className="bg-red-500">
+      <img
+        src={image}
+        alt={name}
+        width="100%"
+        height="auto"
+        className="block"
+      />
+
       <div>
         name: <strong>{name}</strong>
       </div>
       <div>
         status: <strong>{status}</strong>
       </div>
-    </Fragment>
+    </div>
   );
 };
 
