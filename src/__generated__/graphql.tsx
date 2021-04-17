@@ -203,6 +203,11 @@ export type QueryEpisodesByIdsArgs = {
 };
 
 
+export type CharacterSnippetFragment = (
+  { __typename?: 'Character' }
+  & Pick<Character, 'species' | 'name' | 'id' | 'image'>
+);
+
 export type GetCharactersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -217,7 +222,14 @@ export type GetCharactersQuery = (
   )> }
 );
 
-
+export const CharacterSnippetFragmentDoc = gql`
+    fragment CharacterSnippet on Character {
+  species
+  name
+  id
+  image
+}
+    `;
 export const GetCharactersDocument = gql`
     query GetCharacters {
   characters {

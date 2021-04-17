@@ -1,8 +1,9 @@
 module.exports = {
   schema: "https://rickandmortyapi.com/graphql",
-  documents: "src/**/!(*.d).{ts,tsx}",
+  documents: "src/graphql/**/*.graphql",
+  overwrite: true,
   generates: {
-    "./src/__generated__/graphql-types.ts": {
+    "./src/__generated__/graphql.tsx": {
       plugins: [
         "typescript",
         "typescript-operations",

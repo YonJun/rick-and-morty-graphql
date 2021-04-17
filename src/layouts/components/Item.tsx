@@ -1,12 +1,9 @@
 import { Fragment } from "react";
+import { CharacterSnippetFragment } from "../../__generated__/graphql";
 
-type ItemProps = {
-  name: string;
-  image: string;
-  species: string;
-};
+interface ItemProps extends CharacterSnippetFragment {}
 
-const Item: React.FC<ItemProps> = ({ name, species, image }) => {
+const Item: React.FC<CharacterSnippetFragment> = ({ name, species, image }) => {
   return (
     <Fragment>
       <div>
