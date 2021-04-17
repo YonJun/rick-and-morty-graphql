@@ -2,9 +2,10 @@ import "./styles.css";
 import { ApolloProvider } from "@apollo/client/react";
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
 import ListCharacter from "layouts/List";
+import { __BASE_URL__ } from "constants/api";
 
 const client = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
+  uri: __BASE_URL__,
   cache: new InMemoryCache(),
 });
 
