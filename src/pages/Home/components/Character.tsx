@@ -25,15 +25,15 @@ const Character: React.FC<CharacterProps> = () => {
 
   return (
     <Fragment>
-      <p>
+      <div>
         image: <strong>{image}</strong>
-      </p>
-      <p>
+      </div>
+      <div>
         name: <strong>{name}</strong>
-      </p>
-      <p>
+      </div>
+      <div>
         status: <strong>{status}</strong>
-      </p>
+      </div>
     </Fragment>
   );
 };
