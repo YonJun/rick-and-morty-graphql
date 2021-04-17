@@ -1,7 +1,5 @@
 import { Fragment } from "react";
-import { CharacterSnippetFragment } from "../../__generated__/graphql";
-
-interface ItemProps extends CharacterSnippetFragment {}
+import { CharacterSnippetFragment } from "__generated__/graphql";
 
 const Item: React.FC<CharacterSnippetFragment> = ({ name, species, image }) => {
   return (
@@ -9,7 +7,7 @@ const Item: React.FC<CharacterSnippetFragment> = ({ name, species, image }) => {
       <div>
         <h4>{name}</h4>
         <h5>{species}</h5>
-        <img width={100} height={100} src={image!} alt={name!} />
+        <img width={100} height={100} src={image} alt={name} />
       </div>
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import { useGetCharactersQuery } from "../__generated__/graphql";
+import { useGetCharactersQuery } from "__generated__/graphql";
 import Item from "./components/Item";
 
 export default function ListCharacter() {
