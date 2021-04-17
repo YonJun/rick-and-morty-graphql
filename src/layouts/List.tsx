@@ -1,33 +1,21 @@
-import { gql } from "@apollo/client/core";
-import { useQuery } from "@apollo/client";
-
-const LIST_CHARACTERS = gql`
-  query GetCharacters {
-    characters {
-      results {
-        name
-        id
-        image
-      }
-    }
-  }
-`;
+import { useGetCharactersQuery } from "../__generated__/graphql";
+import Item from "./components/Item";
 
 export default function ListCharacter() {
-  const { loading, error, data } = useQuery(LIST_CHARACTERS);
+  const { loading, error, data } = useGetCharactersQuery();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error </p>;
-  const result = data!.characters.results;
+  if (!data) return <p>Sin resultados</p>;
+  // const result = data!.characters!.results!;
   // console.log(result);
   return (
     <div>
-      {result.map((c: any) => (
-        <div key={c.id}>
-          <h4>{c.name}</h4>
-          <img width={100} height={100} src={c.image} alt={c.name} />
-        </div>
-      ))}
+      <div>
+        {data.characters.results.map((p) => (
+          <Item key={p.id} {...p} />
+        ))}
+      </div>
     </div>
   );
 }

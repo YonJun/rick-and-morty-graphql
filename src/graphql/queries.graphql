@@ -1,0 +1,10 @@
+query GetCharacters {
+  characters {
+    results {
+      species
+      name
+      id
+      image
+    }
+  }
+}
