@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.15",
+    "@craco/craco": "^6.1.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -21,9 +22,9 @@
     "zustand": "^3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "gen": "graphql-codegen -r dotenv/config --config codegen.yml"
   },
@@ -51,6 +52,10 @@
     "@graphql-codegen/typescript": "^1.21.1",
     "@graphql-codegen/typescript-operations": "^1.17.15",
     "@graphql-codegen/typescript-react-apollo": "^2.2.3",
-    "@types/styled-components": "^5.1.9"
+    "@tailwindcss/postcss7-compat": "^2.1.0",
+    "@types/styled-components": "^5.1.9",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   }
 }

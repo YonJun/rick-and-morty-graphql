@@ -1,4 +1,3 @@
-import "./styles.css";
 import { ApolloProvider } from "@apollo/client/react";
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
 import Home from "pages/Home";
