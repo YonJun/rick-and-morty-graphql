@@ -1,7 +1,7 @@
 import "./styles.css";
 import { ApolloProvider } from "@apollo/client/react";
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
-import ListCharacter from "layouts/List";
+import Home from "pages/Home";
 import { __BASE_URL__ } from "constants/api";
 
 const client = new ApolloClient({
@@ -12,10 +12,7 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
-        <h2>My first Apollo app 🚀</h2>
-        <ListCharacter />
-      </div>
+      <Home />
     </ApolloProvider>
   );
 }
