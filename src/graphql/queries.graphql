@@ -1,18 +1,10 @@
 query GetCharacters {
   characters {
     results {
-      species
+      status
       name
       id
       image
     }
-  }
-}
-
-query GetCharacter($id: ID!) {
-  character(id: $id) {
-    name
-    image
-    status
   }
 }

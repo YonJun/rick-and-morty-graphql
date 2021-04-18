@@ -1,6 +1,6 @@
 fragment CharacterSnippet on Character {
-  species
   name
   id
   image
+  status
 }

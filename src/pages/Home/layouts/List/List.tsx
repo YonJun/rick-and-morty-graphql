@@ -1,13 +1,19 @@
+import useCharacterStore from "pages/Home/store/character";
 import { useEffect } from "react";
-import { useGetCharactersLazyQuery } from "__generated__/graphql";
+import { useGetCharactersQuery } from "__generated__/graphql";
 import Item from "./components/Item";
 
 export default function ListCharacter() {
-  const [getCharcaters, { loading, data, error }] = useGetCharactersLazyQuery();
+  const { loading, data, error } = useGetCharactersQuery();
+  const set_char = useCharacterStore((s) => s.actions.set_char);
 
   useEffect(() => {
-    getCharcaters();
-  }, [getCharcaters]);
+    if (data) {
+      if (data.characters.results.length) {
+        set_char(data.characters.results[0]);
+      }
+    }
+  }, [data, set_char]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error </p>;

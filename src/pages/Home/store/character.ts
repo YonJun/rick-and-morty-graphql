@@ -1,16 +1,17 @@
 import create from "zustand";
+import { CharacterSnippetFragment } from "__generated__/graphql";
 
 type State = {
-  id: string;
+  char: CharacterSnippetFragment | null;
   actions: {
-    set_id: (by: string) => void;
+    set_char: (by: CharacterSnippetFragment) => void;
   };
 };
 
 const useCharacterStore = create<State>((set) => ({
-  id: "1",
+  char: null,
   actions: {
-    set_id: (by) => set(() => ({ id: by })),
+    set_char: (by) => set(() => ({ char: by })),
   },
 }));
 
