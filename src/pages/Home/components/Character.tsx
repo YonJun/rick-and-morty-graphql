@@ -1,9 +1,25 @@
+import styled from "styled-components";
 import useCharacterStore from "../store/character";
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+`;
 
 const Character: React.FC<{}> = () => {
   const char = useCharacterStore((s) => s.char);
   if (!char) {
-    return <div>loading...</div>;
+    return (
+      <Wrapper className="flex items-center justify-center">
+        <span>Loading...</span>
+      </Wrapper>
+    );
   }
   const { image, name } = char;
 
