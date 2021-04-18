@@ -1,9 +1,13 @@
+import { useGetCharactersQuery } from "__generated__/graphql";
 import Character from "./components/Character";
 import Description from "./components/Description";
 import List from "./layouts/List";
 
 interface HomeProps {}
 const Home: React.FC<HomeProps> = () => {
+  console.log(`render Home`);
+
+  const { data, loading, error } = useGetCharactersQuery();
   return (
     <div className="bg-green-700 m-auto max-w-screen-lg h-auto min-h-screen flex items-center">
       <div className="bg-green-700 grid grid-cols-12 gap-5 w-full">
@@ -18,7 +22,9 @@ const Home: React.FC<HomeProps> = () => {
           </div>
         </div>
         <div className="bg-red-600 col-span-12">
-          <List />
+          <List
+            {...{ data: data?.characters?.results || [], loading, error }}
+          />
         </div>
       </div>
     </div>
