@@ -1,5 +1,9 @@
-query GetCharacters {
-  characters {
+query GetCharacters($pageId: Int) {
+  characters(page: $pageId) {
+    info {
+      next
+      prev
+    }
     results {
       status
       name

@@ -208,14 +208,19 @@ export type CharacterSnippetFragment = (
   & Pick<Character, 'name' | 'id' | 'image' | 'status'>
 );
 
-export type GetCharactersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetCharactersQueryVariables = Exact<{
+  pageId: Maybe<Scalars['Int']>;
+}>;
 
 
 export type GetCharactersQuery = (
   { __typename?: 'Query' }
   & { characters: Maybe<(
     { __typename?: 'Characters' }
-    & { results: Maybe<Array<Maybe<(
+    & { info: Maybe<(
+      { __typename?: 'Info' }
+      & Pick<Info, 'next' | 'prev'>
+    )>, results: Maybe<Array<Maybe<(
       { __typename?: 'Character' }
       & Pick<Character, 'status' | 'name' | 'id' | 'image'>
     )>>> }
@@ -231,8 +236,12 @@ export const CharacterSnippetFragmentDoc = gql`
 }
     `;
 export const GetCharactersDocument = gql`
-    query GetCharacters {
-  characters {
+    query GetCharacters($pageId: Int) {
+  characters(page: $pageId) {
+    info {
+      next
+      prev
+    }
     results {
       status
       name
@@ -255,6 +264,7 @@ export const GetCharactersDocument = gql`
  * @example
  * const { data, loading, error } = useGetCharactersQuery({
  *   variables: {
+ *      pageId: // value for 'pageId'
  *   },
  * });
  */
