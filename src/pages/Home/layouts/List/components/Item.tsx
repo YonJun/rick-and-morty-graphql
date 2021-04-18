@@ -1,12 +1,20 @@
 import { Fragment } from "react";
+import styled from "styled-components";
 import { CharacterSnippetFragment } from "__generated__/graphql";
+
+const Img = styled.img`
+  height: auto;
+  width: 100%;
+  max-width: 120px;
+  min-height: 120px;
+`;
 
 const Item: React.FC<CharacterSnippetFragment> = ({ name, status, image }) => {
   return (
     <Fragment>
       <div>
-        <h5>{status}</h5>
-        <img width={100} height={100} src={image} alt={name} />
+        {/* <h5>{status}</h5> */}
+        <Img className="block" src={image} alt={name} />
       </div>
     </Fragment>
   );

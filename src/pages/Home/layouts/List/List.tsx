@@ -18,16 +18,11 @@ export default function ListCharacter() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error </p>;
   if (!data) return <p>Sin resultados</p>;
-
-  // const result = data!.characters!.results!;
-  // console.log(result);
   return (
-    <div>
-      <div>
-        {data.characters.results.map((p) => (
-          <Item key={p.id} {...p} />
-        ))}
-      </div>
+    <div className="grid grid-flow-row grid-cols-3 md:grid-cols-7 place-items-center gap-4">
+      {data.characters.results.map((p) => (
+        <Item key={p.id} {...p} />
+      ))}
     </div>
   );
 }
