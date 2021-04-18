@@ -1,10 +1,10 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import { useGetCharacterLazyQuery } from "__generated__/graphql";
 import useCharacterStore from "../store/character";
 
-interface CharacterProps {}
+interface DescriptionProps {}
 
-const Character: React.FC<CharacterProps> = () => {
+const Description: React.FC<DescriptionProps> = () => {
   const characterId = useCharacterStore((s) => s.id);
 
   const [getCharacter, { data, error, loading }] = useGetCharacterLazyQuery();
@@ -21,19 +21,17 @@ const Character: React.FC<CharacterProps> = () => {
   if (error) return <p>Error </p>;
   if (!data) return <p>Sin resultados</p>;
 
-  const { image, name } = data.character;
+  const { name, status } = data.character;
 
   return (
-    <div className="bg-red-500">
-      <img
-        src={image}
-        alt={name}
-        width="100%"
-        height="auto"
-        className="block"
-      />
+    <div
+      style={{ lineHeight: "initial" }}
+      className={`md:overflow-hidden	md:overflow-ellipsis font-black md:text-${
+        name.length > 16 ? "7" : "8"
+      }xl text-3xl`}>
+      {name}
     </div>
   );
 };
 
-export default Character;
+export default Description;
