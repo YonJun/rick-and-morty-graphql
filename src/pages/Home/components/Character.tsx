@@ -36,7 +36,7 @@ const Character: React.FC<{}> = () => {
       </Wrapper>
     );
   }
-  const { image, name } = char;
+  const { image, name, status } = char;
 
   return (
     <div className="bg-red-500">
@@ -45,7 +45,7 @@ const Character: React.FC<{}> = () => {
         alt={name}
         width="100%"
         height="auto"
-        className="block rounded "
+        className={`block rounded filter ${status === "Dead" && "grayscale"}`}
       />
     </div>
   );

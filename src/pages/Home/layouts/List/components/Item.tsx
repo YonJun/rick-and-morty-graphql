@@ -11,7 +11,7 @@ const Img = styled.img`
 `;
 
 const Item: React.FC<CharacterSnippetFragment> = (props) => {
-  const { name, status, image } = props;
+  const { name, image } = props;
   const set_char = useCharacterStore((s) => s.actions.set_char);
   return (
     <Fragment>
