@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/rick-and-morty-graphql/static/css/main.f23e892d.chunk.css",
+    "main.js": "/rick-and-morty-graphql/static/js/main.9d3c44de.chunk.js",
+    "main.js.map": "/rick-and-morty-graphql/static/js/main.9d3c44de.chunk.js.map",
+    "runtime-main.js": "/rick-and-morty-graphql/static/js/runtime-main.9c4884f8.js",
+    "runtime-main.js.map": "/rick-and-morty-graphql/static/js/runtime-main.9c4884f8.js.map",
+    "static/js/2.4fe5c138.chunk.js": "/rick-and-morty-graphql/static/js/2.4fe5c138.chunk.js",
+    "static/js/2.4fe5c138.chunk.js.map": "/rick-and-morty-graphql/static/js/2.4fe5c138.chunk.js.map",
+    "index.html": "/rick-and-morty-graphql/index.html",
+    "static/css/main.f23e892d.chunk.css.map": "/rick-and-morty-graphql/static/css/main.f23e892d.chunk.css.map",
+    "static/js/2.4fe5c138.chunk.js.LICENSE.txt": "/rick-and-morty-graphql/static/js/2.4fe5c138.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c4884f8.js",
+    "static/js/2.4fe5c138.chunk.js",
+    "static/css/main.f23e892d.chunk.css",
+    "static/js/main.9d3c44de.chunk.js"
+  ]
+}
