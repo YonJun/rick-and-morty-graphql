@@ -1,5 +1,6 @@
 {
-  "name": "react-graphql",
+  "name": "rick-and-morty-graphql",
+  "homepage": "https://YonJun.github.io/rick-and-morty-graphql",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,6 +24,8 @@
     "zustand": "^3.4.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
@@ -56,6 +59,7 @@
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "@types/styled-components": "^5.1.9",
     "autoprefixer": "^9.8.6",
+    "gh-pages": "^3.1.0",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   }
