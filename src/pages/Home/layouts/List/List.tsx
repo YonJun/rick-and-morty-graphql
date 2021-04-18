@@ -13,6 +13,12 @@ interface ListCharacterProps {
   error?: ApolloError;
 }
 
+const Wrapper: React.FC<{}> = ({ children }) => (
+  <div className="grid grid-flow-row grid-cols-3 md:grid-cols-6 lg:grid-cols-7 place-items-center gap-4">
+    {children}
+  </div>
+);
+
 const ListCharacter: React.FC<ListCharacterProps> = ({
   data,
   loading,
@@ -26,15 +32,27 @@ const ListCharacter: React.FC<ListCharacterProps> = ({
     }
   }, [data, set_char]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <Wrapper>
+        {[...(new Array(21).keys() as any)].map((index) => (
+          <div className="animate-pulse flex space-x-4" key={index}>
+            <div
+              style={{ width: 120, height: 120 }}
+              className="rounded-md bg-blue-400 h-full w-full"
+            />
+          </div>
+        ))}
+      </Wrapper>
+    );
   if (error) return <p>Error </p>;
   if (!data) return <p>Sin resultados</p>;
   return (
-    <div className="grid grid-flow-row grid-cols-3 md:grid-cols-6 lg:grid-cols-7 place-items-center gap-4">
+    <Wrapper>
       {data.map((p) => (
         <Item key={p.id} {...p} />
       ))}
-    </div>
+    </Wrapper>
   );
 };
 
