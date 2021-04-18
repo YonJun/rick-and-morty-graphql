@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { usePalette } from "react-palette";
 import styled from "styled-components";
 import useCharacterStore from "../store/character";
+import useColorStore from "../store/colorStore";
 
 const Wrapper = styled.div`
   position: relative;
@@ -17,13 +18,16 @@ const Wrapper = styled.div`
 const Character: React.FC<{}> = () => {
   const char = useCharacterStore((s) => s.char);
   const { data } = usePalette(char ? char.image : "");
+  const set_color = useColorStore((s) => s.set_color);
 
   useEffect(() => {
     if (data) {
       if (data.lightMuted)
         document.body.style.backgroundColor = data.lightMuted;
+
+      if (data.vibrant) set_color(data.vibrant);
     }
-  }, [data]);
+  }, [data, set_color]);
 
   if (!char) {
     return (

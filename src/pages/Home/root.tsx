@@ -3,12 +3,15 @@ import { useGetCharactersLazyQuery } from "__generated__/graphql";
 import Character from "./components/Character";
 import Description from "./components/Description";
 import List from "./layouts/List";
+import useColorStore from "./store/colorStore";
 import usePageStore from "./store/pageStore";
 
 interface HomeProps {}
 const Home: React.FC<HomeProps> = () => {
   const page = usePageStore((s) => s.page);
   const set_page = usePageStore((s) => s.actions.set_page);
+
+  const color = useColorStore((s) => s.color);
 
   const [getCharacters, { data, loading, error }] = useGetCharactersLazyQuery();
 
@@ -34,7 +37,9 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <div className="m-auto max-w-screen-lg h-auto min-h-screen flex items-center">
       <div className="grid grid-cols-12 gap-5 w-full pb-3">
-        <div className="col-span-12 grid grid-cols-12 sticky top-0">
+        <div
+          className="col-span-12 grid grid-cols-12 sticky top-0"
+          style={{ backgroundColor: color }}>
           <div className="col-span-8 flex items-end">
             <div className="w-full text-right">
               <Description />
@@ -52,7 +57,9 @@ const Home: React.FC<HomeProps> = () => {
           />
         </div>
 
-        <div className="col-span-12 text-center font-black  sticky bottom-0">
+        <div
+          className="col-span-12 text-center font-black sticky bottom-0"
+          style={{ backgroundColor: color }}>
           <div className="text-center font-black">
             <span>{page}</span>
           </div>
