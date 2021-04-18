@@ -53,7 +53,9 @@ const Home: React.FC<HomeProps> = () => {
 
         <div className="col-span-12">
           <List
-            {...{ data: data ? data.characters.results : [], loading, error }}
+            data={data ? data.characters.results : []}
+            loading={loading}
+            error={error}
           />
         </div>
 

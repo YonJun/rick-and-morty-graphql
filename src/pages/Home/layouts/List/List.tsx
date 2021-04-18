@@ -1,6 +1,6 @@
 import { ApolloError } from "@apollo/client";
 import useCharacterStore from "pages/Home/store/character";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import { CharacterSnippetFragment } from "__generated__/graphql";
 import Item from "./components/Item";
 
@@ -21,6 +21,8 @@ const ListCharacter: React.FC<ListCharacterProps> = ({
   loading,
   error,
 }) => {
+  console.log(`render ListCharcter`);
+
   const set_char = useCharacterStore((s) => s.actions.set_char);
 
   useEffect(() => {
@@ -53,4 +55,4 @@ const ListCharacter: React.FC<ListCharacterProps> = ({
   );
 };
 
-export default ListCharacter;
+export default memo(ListCharacter);
