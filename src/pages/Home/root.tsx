@@ -33,36 +33,50 @@ const Home: React.FC<HomeProps> = () => {
   }, [data, set_page]);
   return (
     <div className="bg-green-700 m-auto max-w-screen-lg h-auto min-h-screen flex items-center">
-      <div className="bg-green-700 grid grid-cols-12 gap-5 w-full">
-        <div className="grid grid-cols-12  col-span-12">
+      <div className="bg-green-700 grid grid-cols-12 gap-5 w-full  pb-3">
+        <div className="col-span-12 grid grid-cols-12">
           <div className="bg-green-500 col-span-8 flex items-end">
             <div className="bg-red-700 w-full text-right">
               <Description />
             </div>
           </div>
+
           <div className="bg-red-600 col-span-4">
             <Character />
           </div>
         </div>
+
         <div className="bg-red-600 col-span-12">
           <List
-            {...{ data: data?.characters?.results || [], loading, error }}
+            {...{ data: data ? data.characters.results : [], loading, error }}
           />
         </div>
-        <div className="col-span-12">
-          <span>{`current page ${page}`}</span>
+
+        <div className="col-span-12 text-center font-black ">
+          <span>{page}</span>
         </div>
-        <div className="col-span-12">
-          <button
-            onClick={handle_prevPage}
-            disabled={!data || !data.characters.info.prev}>
-            prev
-          </button>
-          <button
-            onClick={handle_nextPage}
-            disabled={!data || !data.characters.info.next}>
-            next
-          </button>
+
+        <div className="col-span-12 grid grid-cols-12">
+          <div className="col-span-6">
+            <button
+              className={`uppercase w-full btn ${
+                !data || (!data.characters.info.prev && "opacity-50")
+              }`}
+              onClick={handle_prevPage}
+              disabled={!data || !data.characters.info.prev}>
+              prev
+            </button>
+          </div>
+          <div className="col-span-6">
+            <button
+              className={`uppercase w-full btn ${
+                !data || (!data.characters.info.next && "opacity-50")
+              }`}
+              onClick={handle_nextPage}
+              disabled={!data || !data.characters.info.next}>
+              next
+            </button>
+          </div>
         </div>
       </div>
     </div>

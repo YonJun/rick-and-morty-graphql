@@ -5,3 +5,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .btn {
+    @apply hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 shadow;
+  }
+}
