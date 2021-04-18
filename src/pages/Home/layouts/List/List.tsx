@@ -36,7 +36,7 @@ const ListCharacter: React.FC<ListCharacterProps> = ({
           <div className="animate-pulse" key={index}>
             <div
               style={{ width: 120, height: 120 }}
-              className="rounded-md bg-blue-400 h-full w-full"
+              className="rounded-md bg-gray-300 h-full w-full"
             />
           </div>
         ))}
