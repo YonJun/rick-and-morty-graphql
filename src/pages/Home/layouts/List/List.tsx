@@ -1,10 +1,7 @@
 import { ApolloError } from "@apollo/client";
 import useCharacterStore from "pages/Home/store/character";
 import { useEffect } from "react";
-import {
-  CharacterSnippetFragment,
-  useGetCharactersQuery,
-} from "__generated__/graphql";
+import { CharacterSnippetFragment } from "__generated__/graphql";
 import Item from "./components/Item";
 
 interface ListCharacterProps {
@@ -36,7 +33,7 @@ const ListCharacter: React.FC<ListCharacterProps> = ({
     return (
       <Wrapper>
         {[...(new Array(21).keys() as any)].map((index) => (
-          <div className="animate-pulse flex space-x-4" key={index}>
+          <div className="animate-pulse" key={index}>
             <div
               style={{ width: 120, height: 120 }}
               className="rounded-md bg-blue-400 h-full w-full"

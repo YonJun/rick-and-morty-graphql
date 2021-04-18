@@ -38,7 +38,7 @@ const Home: React.FC<HomeProps> = () => {
     <div className="m-auto max-w-screen-lg h-auto min-h-screen flex items-center">
       <div className="grid grid-cols-12 gap-5 w-full pb-3">
         <div
-          className="col-span-12 grid grid-cols-12 sticky top-0"
+          className="col-span-12 grid grid-cols-12 sticky top-0 z-10"
           style={{ backgroundColor: color }}>
           <div className="col-span-8 flex items-end">
             <div className="w-full text-right">
