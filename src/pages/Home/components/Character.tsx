@@ -14,7 +14,7 @@ const Character: React.FC<{}> = () => {
         alt={name}
         width="100%"
         height="auto"
-        className="block"
+        className="block rounded "
       />
     </div>
   );

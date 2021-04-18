@@ -14,7 +14,7 @@ const Item: React.FC<CharacterSnippetFragment> = ({ name, status, image }) => {
     <Fragment>
       <div>
         {/* <h5>{status}</h5> */}
-        <Img className="block" src={image} alt={name} />
+        <Img className="block rounded-md" src={image} alt={name} />
       </div>
     </Fragment>
   );
