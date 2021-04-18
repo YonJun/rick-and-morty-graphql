@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { usePalette } from "react-palette";
 import styled from "styled-components";
 import useCharacterStore from "../store/character";
 
@@ -14,6 +16,15 @@ const Wrapper = styled.div`
 
 const Character: React.FC<{}> = () => {
   const char = useCharacterStore((s) => s.char);
+  const { data } = usePalette(char ? char.image : "");
+
+  useEffect(() => {
+    if (data) {
+      if (data.lightMuted)
+        document.body.style.backgroundColor = data.lightMuted;
+    }
+  }, [data]);
+
   if (!char) {
     return (
       <Wrapper className="flex items-center justify-center">
